@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Placeholder Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .image-container {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        canvas {
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .download-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .download-btn:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Placeholder Images Generator</h1>
+    <p>Click the download buttons to save the generated images to your computer, then rename them and place them in the images folder.</p>
+    
+    <div class="image-container">
+        <canvas id="profile" width="400" height="400"></canvas>
+        <br>
+        <a href="#" class="download-btn" onclick="downloadImage('profile', 'profile.jpg')">Download Profile Image</a>
+    </div>
+    
+    <div class="image-container">
+        <canvas id="about" width="600" height="400"></canvas>
+        <br>
+        <a href="#" class="download-btn" onclick="downloadImage('about', 'about-me.jpg')">Download About Image</a>
+    </div>
+    
+    <div class="image-container">
+        <canvas id="cartobike" width="600" height="400"></canvas>
+        <br>
+        <a href="#" class="download-btn" onclick="downloadImage('cartobike', 'cartobike.jpg')">Download CARTOBIKE Image</a>
+    </div>
+    
+    <div class="image-container">
+        <canvas id="grandprix" width="600" height="400"></canvas>
+        <br>
+        <a href="#" class="download-btn" onclick="downloadImage('grandprix', 'grandprix.jpg')">Download GrandPrix Image</a>
+    </div>
+    
+    <div class="image-container">
+        <canvas id="repo" width="600" height="400"></canvas>
+        <br>
+        <a href="#" class="download-btn" onclick="downloadImage('repo', 'repo.jpg')">Download rePo! Image</a>
+    </div>
+
+    <script>
+        // Create profile image
+        function createProfileImage() {
+            const canvas = document.getElementById('profile');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 400, 400);
+            gradient.addColorStop(0, '#2563eb');
+            gradient.addColorStop(1, '#7c3aed');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 400, 400);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 24px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('AMIR MULANI', 200, 180);
+            ctx.font = '16px Arial';
+            ctx.fillText('Associate Software Engineer', 200, 210);
+            ctx.font = '14px Arial';
+            ctx.fillText('React Native Developer', 200, 235);
+        }
+        
+        // Create about image
+        function createAboutImage() {
+            const canvas = document.getElementById('about');
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = '#f8fafc';
+            ctx.fillRect(0, 0, 600, 400);
+            
+            // Add some geometric shapes
+            ctx.fillStyle = '#2563eb';
+            ctx.fillRect(50, 50, 100, 100);
+            ctx.fillStyle = '#7c3aed';
+            ctx.fillRect(450, 100, 100, 100);
+            ctx.fillStyle = '#fbbf24';
+            ctx.fillRect(250, 200, 100, 100);
+            
+            // Add text
+            ctx.fillStyle = '#1f2937';
+            ctx.font = 'bold 32px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('About Me', 300, 350);
+        }
+        
+        // Create CARTOBIKE image
+        function createCartobikeImage() {
+            const canvas = document.getElementById('cartobike');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 600, 400);
+            gradient.addColorStop(0, '#10b981');
+            gradient.addColorStop(1, '#059669');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 600, 400);
+            
+            // Add bike icon (simplified)
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.arc(200, 200, 80, 0, 2 * Math.PI);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(400, 200, 80, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 28px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('CARTOBIKE', 300, 320);
+            ctx.font = '16px Arial';
+            ctx.fillText('Cross-platform Mobile App', 300, 350);
+        }
+        
+        // Create GrandPrix image
+        function createGrandprixImage() {
+            const canvas = document.getElementById('grandprix');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 600, 400);
+            gradient.addColorStop(0, '#dc2626');
+            gradient.addColorStop(1, '#991b1b');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 600, 400);
+            
+            // Add play button
+            ctx.fillStyle = 'white';
+            ctx.beginPath();
+            ctx.moveTo(250, 150);
+            ctx.lineTo(250, 250);
+            ctx.lineTo(350, 200);
+            ctx.closePath();
+            ctx.fill();
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 28px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('GrandPrix', 300, 320);
+            ctx.font = '16px Arial';
+            ctx.fillText('OTT Platform', 300, 350);
+        }
+        
+        // Create rePo! image
+        function createRepoImage() {
+            const canvas = document.getElementById('repo');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 600, 400);
+            gradient.addColorStop(0, '#7c3aed');
+            gradient.addColorStop(1, '#5b21b6');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 600, 400);
+            
+            // Add book icon (simplified)
+            ctx.fillStyle = 'white';
+            ctx.fillRect(200, 150, 200, 100);
+            ctx.fillStyle = '#7c3aed';
+            ctx.fillRect(210, 160, 180, 80);
+            
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.font = 'bold 28px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('rePo!', 300, 320);
+            ctx.font = '16px Arial';
+            ctx.fillText('E-learning Platform', 300, 350);
+        }
+        
+        // Download function
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = canvas.toDataURL();
+            link.click();
+        }
+        
+        // Initialize all images
+        window.onload = function() {
+            createProfileImage();
+            createAboutImage();
+            createCartobikeImage();
+            createGrandprixImage();
+            createRepoImage();
+        };
+    </script>
+</body>
+</html>
